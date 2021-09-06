@@ -35,7 +35,7 @@ export default function Textform(props) {
             <h2>Text Summary</h2>
             <p>{text.split(' ' || "\n").length} Words and {text.length} Characters</p>
             <h2>Preview</h2>
-            <p>{text}</p>
+            <p>{text.length>0?text:"Enter Text in above area to preview it"}</p>
         </div>
         </>
     )
