@@ -1,9 +1,10 @@
 import './App.css';
-//import About from './components/About';
+import About from './components/About';
 import Navbar from './components/Navbar';
 import Textform from './components/Textform';
 import React, { useState } from 'react'
 import Alert from './components/Alert';
+import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 
 function App() {
   const [mode, setMode] = useState('light');
@@ -78,10 +79,20 @@ function App() {
 
   return (
     <>
-    <Navbar mode={mode} DarkMode={DarkMode} RedMode={RedMode} GreenMode={GreenMode} BlueMode={BlueMode}/>
-    <Alert alert={alert}/>
-    {/* <About/> */}
-    <Textform showAlert={showAlert} heading = "Enter Text to Analyze"/>
+    <Router>
+      <Navbar mode={mode} DarkMode={DarkMode} RedMode={RedMode} GreenMode={GreenMode} BlueMode={BlueMode}/>
+      <Alert alert={alert}/>
+      <div className="container">
+        <Switch>
+              <Route exact path="/about">
+                <About/>
+              </Route>
+              <Route exact path="/">
+                <Textform showAlert={showAlert} heading = "Enter Text to Analyze" mode={mode}/>
+              </Route>
+        </Switch>
+      </div>
+    </Router>
     </>
   );
 }
