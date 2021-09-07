@@ -85,7 +85,7 @@ function App() {
       <div className="container">
         <Switch>
               <Route exact path="/about">
-                <About/>
+                <About mode={mode}/>
               </Route>
               <Route exact path="/">
                 <Textform showAlert={showAlert} heading = "Enter Text to Analyze" mode={mode}/>
